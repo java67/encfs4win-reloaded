@@ -1,0 +1,12 @@
+EncFS4Win Reloaded
+ # Initial reloaded fork release from KrisWebDev
+ # Based on Erte fork #465d025, see versions.txt for details
+ - BUGFIXES:
+   - ABILITY TO OPEN READ-ONLY FILES (separate commit)
+ - PROJECT:
+   - Ported to Visual Studio 2015 (HAVE_STRUCT_TIMESPEC in several projects Preprocessor Definitions)
+   - Cleanup and folder renaming without versions: no more build issues with encfs1 libraries paths
+   - Source space optimizations
+   - Added all missing sources (dokany, Win32SSL...)
+   - Added Release binaries & pre-compiled libraries for Release & Debug
+   - Added detailed build instructions

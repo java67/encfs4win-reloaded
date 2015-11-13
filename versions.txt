@@ -1,0 +1,31 @@
+This repository is based on the following source code/pre-build libraries:
+
+EncFS4win: Based on Erte fork #465d025
+  https://github.com/Erte/encfs4win/tree/465d025dbf960b57fec359dfbd0b6720b3053b54
+  See changelog for changes done since.
+  Pre-build: Compiled to encfs/msvc/Release. Binaries with DLL dependencies available in zip file in root /bin folder.
+  EncFS4win is based on encfs: v1.7.4
+    Original source in /orig folder
+
+Dokany: v0.7.4 (dokany-0.7.4.zip)
+  https://github.com/dokan-dev/dokany/releases/tag/v0.7.4
+  Pre-built: Compiled to dokany/Win32/Release (as per build instructions)
+  Note: Dokany 0.8 is not retro-compatible: build will break.
+  Space optimization: Debug version has not been built. See build instructions.
+
+OpenSSL-Win32: v1.0.2d Non-Light (Win32OpenSSL-1_0_2d.exe)
+  https://slproweb.com/products/Win32OpenSSL.html
+  Pre-built: Included
+  Space optimization: Removed /OpenSSL-Win32/lib/VC/static
+
+Rlog: v1.4 patched
+  https://code.google.com/p/rlog/downloads/list
+  Patched with: /orig/rlog-patch-source made by original EncFS4win project (see folder)
+  Pre-built: Compiled to rlog/win32/Release (as per build instructions)
+  Space optimization: Debug version has not been built. See build instructions.
+
+Boost: v1.59.0 32bit (boost_1_59_0-msvc-14.0-32.exe)
+  Download page: http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/
+  Project page: http://www.boost.org/
+  Pre-built: Included
+  Space optimization: minimized with tools/boost-minizer.bat
