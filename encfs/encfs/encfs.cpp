@@ -566,13 +566,15 @@ int encfs_utimens(const char *path, const struct timespec ts[2] )
 
 int encfs_open(const char *path, struct fuse_file_info *file)
 {
-    EncFS_Context *ctx = context();
+	EncFS_Context *ctx = context();
 
     int res = -EIO;
     boost::shared_ptr<DirNode> FSRoot = ctx->getRoot(&res);
-    if(!FSRoot)
-	return res;
-
+	if (!FSRoot) {
+		string cyName = FSRoot->cipherPath(path);
+		rLog(Info, "encfs_open has no FSRoot for path %s", cyName.c_str());
+		return res;
+	}
     try
     {
 	boost::shared_ptr<FileNode> fnode = 
@@ -589,6 +591,11 @@ int encfs_open(const char *path, struct fuse_file_info *file)
 		res = ESUCCESS;
 	    }
 	}
+	else {
+		string cyName = FSRoot->cipherPath(path);
+		rLog(Info, "encfs_open has no fnode for path %s", cyName.c_str());
+	}
+
     } catch( rlog::Error &err )
     {
 	rError("error caught in open");

@@ -127,6 +127,7 @@ static int open_readonly_workaround(const char *path, int flags)
 int RawFileIO::open(int flags)
 {
     bool requestWrite = ((flags & O_RDWR) || (flags & O_WRONLY));
+	bool canReallyWrite = requestWrite;
 
     rDebug("open call for %s file", requestWrite ? "writable" : "read only");
 
@@ -156,9 +157,17 @@ int RawFileIO::open(int flags)
 
 	if((newFd == -1) && (errno == EACCES))
 	{
-	    rDebug("using readonly workaround for open");
+	    rDebug("using chmod workaround for open");
 	    newFd = open_readonly_workaround( name.c_str(), finalFlags );
+		/*if (newFd == -1)
+		{
+			finalFlags = O_RDONLY;
+			rDebug("forcing readonly mode (O_RDONLY) for open, as requested write may be useless");
+			newFd = open_readonly_workaround(name.c_str(), finalFlags);
+			canReallyWrite = false;
+		}*/
 	}
+
 
 	if(newFd >= 0)
 	{
@@ -170,7 +179,7 @@ int RawFileIO::open(int flags)
 
 	    // the old fd might still be in use, so just keep it around for
 	    // now.
-	    canWrite = requestWrite;
+	    canWrite = canReallyWrite;
 	    oldfd = fd;
 	    result = fd = newFd;
 	} else
