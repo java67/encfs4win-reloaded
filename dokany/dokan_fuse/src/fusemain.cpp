@@ -24,7 +24,7 @@
 	GENERIC_READ|GENERIC_EXECUTE|FILE_GENERIC_EXECUTE|FILE_GENERIC_READ|\
 	READ_CONTROL|FILE_EXECUTE|FILE_LIST_DIRECTORY|FILE_READ_DATA|\
 	FILE_READ_EA)
-#define ACCESS_WRITE (STANDARD_RIGHTS_WRITE|GENERIC_WRITE|FILE_GENERIC_WRITE|\
+#define ACCESS_WRITE (GENERIC_WRITE|\
 	WRITE_DAC|WRITE_OWNER|FILE_APPEND_DATA|FILE_WRITE_ATTRIBUTES|\
 	FILE_WRITE_DATA|FILE_WRITE_EA|FILE_ADD_FILE|FILE_ADD_SUBDIRECTORY|\
 	FILE_APPEND_DATA)
@@ -133,6 +133,7 @@ int impl_fuse_context::do_open_dir(LPCWSTR FileName, PDOKAN_FILE_INFO DokanFileI
 int impl_fuse_context::do_open_file(LPCWSTR FileName, DWORD share_mode, DWORD Flags,
 									PDOKAN_FILE_INFO DokanFileInfo)
 {
+	//printf("DOKAN: impl_fuse_context::do_open_file(%ls, 0x%lx, ...)\n", FileName, Flags);
 	if (!ops_.open) return -EINVAL;
 	std::string fname=unixify(wchar_to_utf8_cstr(FileName));
 	CHECKED(check_and_resolve(&fname));
@@ -183,10 +184,29 @@ int impl_fuse_context::convert_flags(DWORD Flags)
 {
 	bool read=(Flags & ACCESS_READ) != 0;
 	bool write=(Flags & ACCESS_WRITE) != 0;
-	if (read && !write)
+	/*printf("DOKAN: ACCESS_WRITE %lX | %lX = %lX\n", ACCESS_WRITE, Flags, ACCESS_WRITE & Flags);
+	printf("DOKAN: STANDARD_RIGHTS_WRITE %lX | %lX = %lX\n", STANDARD_RIGHTS_WRITE, Flags, STANDARD_RIGHTS_WRITE & Flags);
+	printf("DOKAN: GENERIC_WRITE %lX | %lX = %lX\n", GENERIC_WRITE, Flags, GENERIC_WRITE & Flags);
+	printf("DOKAN: FILE_GENERIC_WRITE %lX | %lX = %lX\n", FILE_GENERIC_WRITE, Flags, FILE_GENERIC_WRITE & Flags);
+	printf("DOKAN: WRITE_DAC %lX | %lX = %lX\n", WRITE_DAC, Flags, WRITE_DAC & Flags);
+	printf("DOKAN: WRITE_OWNER %lX | %lX = %lX\n", WRITE_OWNER, Flags, WRITE_OWNER & Flags);
+	printf("DOKAN: FILE_APPEND_DATA %lX | %lX = %lX\n", FILE_APPEND_DATA, Flags, FILE_APPEND_DATA & Flags);
+	printf("DOKAN: FILE_WRITE_ATTRIBUTES %lX | %lX = %lX\n", FILE_WRITE_ATTRIBUTES, Flags, FILE_WRITE_ATTRIBUTES & Flags);
+	printf("DOKAN: FILE_WRITE_DATA %lX | %lX = %lX\n", FILE_WRITE_DATA, Flags, FILE_WRITE_DATA & Flags);
+	printf("DOKAN: FILE_WRITE_EA %lX | %lX = %lX\n", FILE_WRITE_EA, Flags, FILE_WRITE_EA & Flags);
+	printf("DOKAN: FILE_ADD_FILE %lX | %lX = %lX\n", FILE_ADD_FILE, Flags, FILE_ADD_FILE & Flags);
+	printf("DOKAN: FILE_ADD_SUBDIRECTORY %lX | %lX = %lX\n", FILE_ADD_SUBDIRECTORY, Flags, FILE_ADD_SUBDIRECTORY & Flags);
+	printf("DOKAN: FILE_APPEND_DATA %lX | %lX = %lX\n", FILE_APPEND_DATA, Flags, FILE_APPEND_DATA & Flags);*/
+
+	if (read && !write) {
+		//printf("DOKAN: O_RDONLY\n");
 		return O_RDONLY;
-	if (!read && write)
+	}
+	if (!read && write) {
+		//printf("DOKAN: O_WRONLY\n");
 		return O_WRONLY;
+	}
+	//printf("DOKAN: O_RDWR\n");
 	return O_RDWR;
 }
 
