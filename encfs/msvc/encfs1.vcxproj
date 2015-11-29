@@ -80,7 +80,7 @@
     <PostBuildEvent>
       <Command>xcopy "$(TargetPath)" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
 xcopy "$(SolutionDir)..\..\OpenSSL-Win32\libeay32.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
-xcopy "$(SolutionDir)..\..\OpenSSL-Win32\libssl32.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
+xcopy "$(SolutionDir)..\..\OpenSSL-Win32\ssleay32.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
 xcopy "$(SolutionDir)..\..\rlog\win32\$(Configuration)\rlog.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
 </Command>
     </PostBuildEvent>
@@ -114,7 +114,7 @@ xcopy "$(SolutionDir)..\..\rlog\win32\$(Configuration)\rlog.dll" "$(SolutionDir)
     <PostBuildEvent>
       <Command>xcopy "$(TargetPath)" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
 xcopy "$(SolutionDir)..\..\OpenSSL-Win32\libeay32.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
-xcopy "$(SolutionDir)..\..\OpenSSL-Win32\libssl32.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
+xcopy "$(SolutionDir)..\..\OpenSSL-Win32\ssleay32.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
 xcopy "$(SolutionDir)..\..\rlog\win32\$(Configuration)\rlog.dll" "$(SolutionDir)..\..\bin\$(Configuration)\" /i /y
 </Command>
     </PostBuildEvent>
