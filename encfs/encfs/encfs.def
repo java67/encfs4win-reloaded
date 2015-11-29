@@ -1,5 +1,0 @@
-LIBRARY    encfs1.dll
-EXPORTS
-	main_encfs
-	main_encfsctl
-	main_gui
