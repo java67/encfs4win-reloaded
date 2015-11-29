@@ -24,7 +24,7 @@ encfs <crypted_dir> <plain_dir>
 
 NOTE: **Use a drive (like `X:`)** as `<plain_dir>` to avoid case sensitive problems which results in file/folder not found problems. To change the drive label, use `encfs <crypt_dir> <plain_dir> -- -o volname=<label>`
 
-NOTE: GUI (encfsw) is not compatible with EncFS4Win Reloaded v2. If you want a CLI, consider downloading v1 (see [Releases](https://github.com/kriswebdev/encfs4win-reloaded/releases)).
+NOTE: GUI (encfsw) is not compatible with EncFS4Win Reloaded v2. If you want it, consider downloading v1 (see [Releases](https://github.com/kriswebdev/encfs4win-reloaded/releases)).
 
 ## Build
 
