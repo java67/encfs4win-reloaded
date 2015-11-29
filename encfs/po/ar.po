@@ -1,0 +1,637 @@
+# Arabic translation for encfs
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# This file is distributed under the same license as the encfs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: encfs\n"
+"Report-Msgid-Bugs-To: https://translations.launchpad.net/encfs/main/+pots/"
+"encfs\n"
+"POT-Creation-Date: 2015-03-29 18:22+0200\n"
+"PO-Revision-Date: 2008-02-27 11:55+0000\n"
+"Last-Translator: Anas Husseini <anas_h_34@hotmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n % 100 >= "
+"3 && n % 100 <= 10 ? 3 : n % 100 >= 11 && n % 100 <= 99 ? 4 : 5;\n"
+"X-Launchpad-Export-Date: 2015-03-14 00:04+0000\n"
+"X-Generator: Launchpad (build 17389)\n"
+
+#, c-format
+msgid "truncate failure: read %i bytes, partial block of %i"
+msgstr "فشل تقطيع: قراءة %i بايت، كتلةجزئية من %i"
+
+msgid "  -- show information (Default command)"
+msgstr ""
+
+msgid "  -- show key"
+msgstr ""
+
+msgid "  -- change password for volume"
+msgstr ""
+
+msgid ""
+"  -- change password for volume, taking password from standard input.\n"
+"\tNo prompts are issued."
+msgstr ""
+"  -- غيّر كلمة المرور للمجلد، آخذا كلمة المرور من الإدخال القياسي\n"
+"\tلن يظهر محث"
+
+msgid "  -- show undecodable filenames in the volume"
+msgstr "  -- أظهر أسماء الملفات المتعذر حل ترميزها في مساحة التخزين"
+
+msgid "  -- decodes the file and cats it to standard out"
+msgstr "  -- تحل ترميز الملف وتخرجه إلى المخرج القياسي"
+
+msgid "  -- decodes name and prints plaintext version"
+msgstr "  -- تحل ترميز الاسم و تطبع  نصه الصريح"
+
+msgid "  -- encodes a filename and print result"
+msgstr "  -- ترمز اسم ملف و تطبع النتيجة"
+
+msgid "  -- decrypts a volume and writes results to path"
+msgstr "  -- تظهّر مساحة تخزين وتكتب النتائج إلى المسار"
+
+msgid "  -- print version number and exit"
+msgstr "  -- اطبع رقم الإصدارة و اخرج"
+
+#, c-format
+msgid "encfsctl version %s"
+msgstr "encfsctl الإصدارة %s"
+
+msgid "Usage:\n"
+msgstr "الاستخدام:\n"
+
+#, c-format
+msgid ""
+"%s (root dir)\n"
+"  -- displays information about the filesystem, or \n"
+msgstr ""
+"%s (دليل الجذر) \n"
+"  -- تعرض معلومات عن نظام الملفات أو \n"
+
+#, c-format
+msgid ""
+"Example: \n"
+"%s info ~/.crypt\n"
+msgstr ""
+"مثال: \n"
+"%s info ~/.crypt\n"
+
+#, c-format
+msgid "directory %s does not exist.\n"
+msgstr "الدليل %s غير موجود.\n"
+
+msgid "Unable to load or parse config file\n"
+msgstr "تعذّر تحميل أو تفصيل ملف التضبيطات\n"
+
+msgid ""
+"A really old EncFS filesystem was found. \n"
+"It is not supported in this EncFS build.\n"
+msgstr ""
+"نظام ملفات EncFS هذا قديم جدا. \n"
+"و هو غير مدعوم في هذه الإنشاءة من EncFS.\n"
+
+#, c-format
+msgid "Version 3 configuration; created by %s\n"
+msgstr "تضبيطات من الإصدارة 3؛ انشأها %s\n"
+
+#, c-format
+msgid "Version 4 configuration; created by %s\n"
+msgstr "تضبيطات من الإصدارة 4؛ أنشأها %s\n"
+
+#, c-format
+msgid "Version 5 configuration; created by %s (revision %i)\n"
+msgstr "تضبيطات من الإصدارة 5؛ أنشأها %s (المراجعة %i)\n"
+
+#, c-format
+msgid "Version 6 configuration; created by %s (revision %i)\n"
+msgstr ""
+
+#, c-format
+msgid "getopt error: %i"
+msgstr "خطأ getopt: %i"
+
+msgid "Incorrect number of arguments"
+msgstr ""
+
+msgid "Unable to initialize encrypted filesystem - check path.\n"
+msgstr "تعذّر بدء نظام الملفات المعمّى - راجع المسار.\n"
+
+#, c-format
+msgid "In directory %s: \n"
+msgstr "في الدليل %s: \n"
+
+#, c-format
+msgid "Found %i invalid file."
+msgid_plural "Found %i invalid files."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "Unable to find specified cipher \"%s\"\n"
+msgstr "تعذّر إيجاد خوارزمية التعمية \"%s\"\n"
+
+msgid "Enter current Encfs password\n"
+msgstr "أدخل كلمة مرور EncFS الحالية\n"
+
+msgid "Invalid password\n"
+msgstr "كلمة مرور غير صحيحة\n"
+
+msgid "Enter new Encfs password\n"
+msgstr "أدخل كلمة مرور EncFS الجديدة\n"
+
+msgid "Volume Key successfully updated.\n"
+msgstr "تم بنجاح تحديث مفتاح المجلد.\n"
+
+msgid "Error saving modified config file.\n"
+msgstr "حدث خطأ أثناء حفظ ملف التضبيطات المعدّل.\n"
+
+msgid "Error creating key\n"
+msgstr ""
+
+#, c-format
+msgid "invalid command: \"%s\""
+msgstr "أمر غير صحيح: \"%s\""
+
+#, c-format
+msgid "Incorrect number of arguments for command \"%s\""
+msgstr "عدد المعطيات غير صحيح للأمر \"%s\""
+
+#, c-format
+msgid "The directory \"%s\" does not exist. Should it be created? (y,n) "
+msgstr "الدليل \"%s\" غير موجود. هل ينبغي إنشاؤه؟ (y، n) "
+
+msgid "Unable to create directory: "
+msgstr "تعذّر إنشاء دليل: "
+
+msgid "Directory not created."
+msgstr "لم ينشأ الدليل."
+
+#, fuzzy, c-format
+msgid "Found config file %s, but failed to load - exiting"
+msgstr "وجد ملف تضبيطات %s، لكن تعذّر تحميله"
+
+#, c-format
+msgid ""
+"Config subversion %i found, but this version of encfs only supports up to "
+"version %i."
+msgstr ""
+"وجدت تضبيطات من الإصدارة الفرعية %i إلا أن هذه الإصدارة من encfs تدعم فقط "
+"الإصدارات حتى %i."
+
+msgid ""
+"This version of EncFS doesn't support filesystems created before 2004-08-13"
+msgstr "هذه النسخة من EncFS لا تدعم أنظمة الملفات المنشأة قبل 13-08-2004"
+
+msgid "The following cipher algorithms are available:"
+msgstr "خوارزميات التعمية التالية متاحة:"
+
+#, c-format
+msgid " -- key length %i bits"
+msgstr " -- طول المفتاح %i بتة"
+
+#, c-format
+msgid " -- Supports key lengths of %i to %i bits"
+msgstr " -- يدعم أطوال مفاتيح من %i إلى %i بتة"
+
+#, c-format
+msgid " -- block size %i bytes"
+msgstr " -- حجم الكتلة %i بايت"
+
+#, c-format
+msgid " -- Supports block sizes of %i to %i bytes"
+msgstr " -- يدعم حجوما للكتل من %i إلى %i بايت"
+
+msgid "Enter the number corresponding to your choice: "
+msgstr "أدخل الرقم المقابل لاختيارك: "
+
+msgid "Invalid selection."
+msgstr "اختيار غير صحيح."
+
+#, c-format
+msgid "Selected algorithm \"%s\""
+msgstr "لقد اخترت خوارزمية \"%s\""
+
+msgid "The following filename encoding algorithms are available:"
+msgstr "خوارزميات ترميز أسماء الملفات التالية متاحة:"
+
+#, c-format
+msgid "Using key size of %i bits"
+msgstr "يستخدم مفتاح بطول %i بتة"
+
+#, c-format
+msgid ""
+"Please select a key size in bits.  The cipher you have chosen\n"
+"supports sizes from %i to %i bits in increments of %i bits.\n"
+"For example: "
+msgstr ""
+"اختر طولا للمفتاح بالبتات. الخوارزمية التي اخترتها\n"
+"تدعم أطوالا من %i إلى %i بتة بمضاعفات %i بتة.\n"
+"مثلا: "
+
+msgid "Selected key size: "
+msgstr "طول المفتاح المختار: "
+
+#, c-format
+msgid "Using filesystem block size of %i bytes"
+msgstr "يستخدم كتل لنظام الملفات حجمها %i بايت"
+
+#, c-format
+msgid ""
+"Select a block size in bytes.  The cipher you have chosen\n"
+"supports sizes from %i to %i bytes in increments of %i.\n"
+"Or just hit enter for the default (%i bytes)\n"
+msgstr ""
+"اختر حجما للكتلة بالبايتات. الخوارزمية التي اخترتها\n"
+"تدعم حجوما من %i إلى %i بايت بمضاعفات %i.\n"
+"أو اضغط enter لتستعمل المبدئي (%i بايت)\n"
+
+msgid "filesystem block size: "
+msgstr "حجم كتلة نظام الملفات: "
+
+msgid ""
+"Enable block authentication code headers\n"
+"on every block in a file?  This adds about 12 bytes per block\n"
+"to the storage requirements for a file, and significantly affects\n"
+"performance but it also means [almost] any modifications or errors\n"
+"within a block will be caught and will cause a read error."
+msgstr ""
+
+msgid ""
+"\n"
+"\n"
+"You specified --require-macs.  Enabling block authentication code "
+"headers...\n"
+"\n"
+msgstr ""
+
+msgid ""
+"Add random bytes to each block header?\n"
+"This adds a performance penalty, but ensures that blocks\n"
+"have different authentication codes.  Note that you can\n"
+"have the same benefits by enabling per-file initialization\n"
+"vectors, which does not come with as great of performance\n"
+"penalty. \n"
+"Select a number of bytes, from 0 (no random bytes) to 8: "
+msgstr ""
+"أأضيف بايتات عشوائية إلى ترويسة كل كتلة؟\n"
+"يقلل هذا من الأداء إلا أنه يضمن أن يكون لكل\n"
+"كتلة رمز توثيق مختلفة. لاحظ أنه بوسعك الحصول\n"
+"على ذات النتيجة بتفعيل متجهات البدء على كل ملف\n"
+"و هي لا تقلل الأداء بذات القدر. "
+
+msgid ""
+"Enable per-file initialization vectors?\n"
+"This adds about 8 bytes per file to the storage requirements.\n"
+"It should not affect performance except possibly with applications\n"
+"which rely on block-aligned file io for performance."
+msgstr ""
+
+msgid ""
+"Enable filename initialization vector chaining?\n"
+"This makes filename encoding dependent on the complete path, \n"
+"rather then encoding each path element individually."
+msgstr ""
+
+msgid ""
+"Enable filename to IV header chaining?\n"
+"This makes file data encoding dependent on the complete file path.\n"
+"If a file is renamed, it will not decode sucessfully unless it\n"
+"was renamed by encfs with the proper key.\n"
+"If this option is enabled, then hard links will not be supported\n"
+"in the filesystem."
+msgstr ""
+
+msgid ""
+"Enable file-hole pass-through?\n"
+"This avoids writing encrypted blocks when file holes are created."
+msgstr ""
+
+msgid "Creating new encrypted volume."
+msgstr "يجري إنشاء مجلد معمى جديد."
+
+msgid ""
+"Please choose from one of the following options:\n"
+" enter \"x\" for expert configuration mode,\n"
+" enter \"p\" for pre-configured paranoia mode,\n"
+" anything else, or an empty line will select standard mode.\n"
+"?> "
+msgstr ""
+"اختر أحد الخيارات التالية:\n"
+" أدخل \"x\" لطور التضبيطات المتقدم،\n"
+" اضغط \"p\" للتضبيطات الجاهزة بالغة الحيطة،\n"
+" أي شيء آخر أو سطر خاو سيختار الطور العادي.\n"
+"؟> "
+
+#, fuzzy
+msgid "Paranoia configuration not supported for reverse encryption"
+msgstr "إعدادات المهووس الأمني غير مدعومة مع --reverse"
+
+msgid "Paranoia configuration selected."
+msgstr "اختيرت التضبيطات بالغة الحذر."
+
+msgid "Standard configuration selected."
+msgstr "اختيرت التضبيطات الاعتيادية"
+
+msgid ""
+"Sorry, unable to locate cipher for predefined configuration...\n"
+"Falling through to Manual configuration mode."
+msgstr ""
+"تعذّر إيجاد خوارزمية تلبي الإعدادت المسبقة...\n"
+"يجري الرجوع إلى طور التضبيطات اليدوية."
+
+msgid "Manual configuration mode selected."
+msgstr "اختير طور التضبيطات اليدوية."
+
+msgid "reverse encryption - chained IV and MAC disabled"
+msgstr ""
+
+msgid ""
+"External chained IV disabled, as both 'IV chaining'\n"
+"and 'unique IV' features are required for this option."
+msgstr ""
+"تم تعطيل السلسة الخارجية لمتجهات البدء حيث أن كلا من\n"
+" 'سَلسة المتجهات' و 'المتجهات الفريدة' مطلوب ليتاح هذا الخيار."
+
+#, c-format
+msgid "Unable to instanciate cipher %s, key size %i, block size %i"
+msgstr "تعذّر بدء الخوارزمية %s بفمتاح حجمه %i و كتلة حجمها %i"
+
+msgid ""
+"Configuration finished.  The filesystem to be created has\n"
+"the following properties:"
+msgstr ""
+"تمت التضبيطات. نظام الملفات الذي سينشأ\n"
+"ستكون له الخصائص التالية:"
+
+msgid "-------------------------- WARNING --------------------------\n"
+msgstr "-------------------------- تحذير --------------------------\n"
+
+msgid ""
+"The external initialization-vector chaining option has been\n"
+"enabled.  This option disables the use of hard links on the\n"
+"filesystem. Without hard links, some programs may not work.\n"
+"The programs 'mutt' and 'procmail' are known to fail.  For\n"
+"more information, please see the encfs mailing list.\n"
+"If you would like to choose another configuration setting,\n"
+"please press CTRL-C now to abort and start over."
+msgstr ""
+"تم تفعيل خيار السَلسلة الخاريجة لمتجهات البدء.\n"
+"يعطل هذا الخيار استعمال الروابط الصلبة في نظام الملفات.\n"
+"بعض البرمجيات قد لا تعمل في غياب الروابط الصلبة.\n"
+"مثل، برمجيتا mutt و procmail معروف عنهما هذا.\n"
+"لمزيد من المعلومات طالع قائمة encfs البريدية.\n"
+"إن كنت تريد تغيير أي من خيارات التضبيطات\n"
+"فاضغط CTRL-C الآن لتجهض هذا و تبدأ من جديد."
+
+msgid ""
+"Now you will need to enter a password for your filesystem.\n"
+"You will need to remember this password, as there is absolutely\n"
+"no recovery mechanism.  However, the password can be changed\n"
+"later using encfsctl.\n"
+"\n"
+msgstr ""
+"ينبغي عليك الآن إدخال كلمة مرور لنظام الملفات.\n"
+"سيكون عليك تذكر كلمة المرور حيث لا توجد أي\n"
+"وسيلة لاستعادة المعمى، لكن سيكون بإمكانك تغيير\n"
+"كلمة المرور في أي وقت لاحقا باستخدام encfsctl.\n"
+"\n"
+
+msgid "Failure generating new volume key! Please report this error."
+msgstr "فشل توليد مفتاح جديد للمجلد! رجاء أبلغ عن هذا الخطأ."
+
+msgid "Name coding interface not supported"
+msgstr "واجهة ترميز الأسماء غير مدعومة."
+
+msgid "The filename encoding interface requested is not available"
+msgstr "واجهة ترميز أسماء الملفات المطلوبة غير متاحة"
+
+#, c-format
+msgid "Filesystem cipher: \"%s\", version %i:%i:%i"
+msgstr "خوارزمية تعمية نظام الملفات: \"%s\" الإصدارة %i:%i:%i"
+
+msgid " (NOT supported)\n"
+msgstr " (غير مدعوم)\n"
+
+#, c-format
+msgid " (using %i:%i:%i)\n"
+msgstr " (باستخدام %i:%i:%i)\n"
+
+#, c-format
+msgid "Filename encoding: \"%s\", version %i:%i:%i"
+msgstr "ترميز أسماء اللفات: \"%s\" الإصدارة %i:%i:%i"
+
+#, c-format
+msgid "Key Size: %i bits"
+msgstr "طول المفتاح: %i بتة"
+
+#, c-format
+msgid "Using PBKDF2, with %i iterations"
+msgstr ""
+
+#, c-format
+msgid "Salt Size: %i bits"
+msgstr ""
+
+#, c-format
+msgid "Block Size: %i bytes + %i byte MAC header"
+msgstr "حجم الكتلة: %i بايت + %i بايت ترويسة MAC"
+
+#, c-format
+msgid "Block Size: %i bytes, including %i byte MAC header"
+msgstr "حجم الكتلة: %i بايت متضمنة %i بايت ترويسة MAC"
+
+#, c-format
+msgid "Block Size: %i bytes"
+msgstr "حجم الكتلة: %i بايت"
+
+msgid "Each file contains 8 byte header with unique IV data.\n"
+msgstr "كل ملف يحوي ترويسة طولها 8 بايتات من بيانات متجه البدء الفريدة.\n"
+
+msgid "Filenames encoded using IV chaining mode.\n"
+msgstr "أيماء الملفات مرمزة في طور سَلسلة متجهات البدء.\n"
+
+msgid "File data IV is chained to filename IV.\n"
+msgstr "بيانات متجهات بدء الملفات مسلسلة مع متجهات بدء أسماء الملفات.\n"
+
+msgid "File holes passed through to ciphertext.\n"
+msgstr ""
+
+msgid "Error creating salt\n"
+msgstr ""
+
+msgid "EncFS Password: "
+msgstr "كلمة مرور EncFS: "
+
+msgid "Zero length password not allowed\n"
+msgstr "كلمات المرور الخاوية غير مقبولة\n"
+
+msgid "Internal error: socketpair() failed"
+msgstr "Internal error: socketpair() failed"
+
+msgid "Internal error: fork() failed"
+msgstr "Internal error: fork() failed"
+
+msgid "Internal error: failed to exec program"
+msgstr "Internal error: failed to exec program"
+
+msgid "New Encfs Password: "
+msgstr "كلمة مرور EncFS الجديدة: "
+
+msgid "Verify Encfs Password: "
+msgstr "أكد كلمة مرور EncFS: "
+
+msgid "Passwords did not match, please try again\n"
+msgstr "لم تتطابق كلمتا المرور، رجاء حاول ثانية\n"
+
+#, fuzzy
+msgid "The configuration disabled MAC, but you passed --require-macs\n"
+msgstr "الإعدادات المحملة غير متوافقة مع --reverse\n"
+
+msgid "The configuration loaded is not compatible with --reverse\n"
+msgstr "الإعدادات المحملة غير متوافقة مع --reverse\n"
+
+#, c-format
+msgid "Unable to find cipher %s, version %i:%i:%i"
+msgstr "تعذّر إيجاد خوارزمية التعمية %s، الإصدارة %i: %i: %i"
+
+msgid "The requested cipher interface is not available\n"
+msgstr "واجهة خوارزمية التعمية المطلوبة غير متاحة\n"
+
+msgid "Error decoding volume key, password incorrect\n"
+msgstr "حدث خطأ أثناء حل ترميز مفتاح المجلد؛ كلمة المرور غير صحيحة\n"
+
+#, c-format
+msgid "Unable to find nameio interface %s, version %i:%i:%i"
+msgstr "تعذّر إيجاد واجهة ترميز أسماء الملفات %s، الإصدارة  %i: %i: %i"
+
+msgid "The requested filename coding interface is not available\n"
+msgstr "واجهة ترميز أسماء الملفات المطلوبة غير متاحة\n"
+
+msgid "Remount failed"
+msgstr "فشلت إعادة الضم"
+
+#, c-format
+msgid "MAC comparison failure in block %li"
+msgstr "فشلت مطابقة MAC للكتلة %li"
+
+msgid "MAC comparison failure, refusing to read"
+msgstr "فشلت مطابقة MAC، ترفض القراءة"
+
+#, c-format
+msgid "Build: encfs version %s"
+msgstr "الإنشاءة: encfs الإصدارة %s"
+
+#, c-format
+msgid "Usage: %s [options] rootDir mountPoint [-- [FUSE Mount Options]]"
+msgstr ""
+"الاستخدام:  %s  [خيارات]   مجلد الجذر   نقطة الضم   [[-- [خيارات ضم FUSE]]"
+
+msgid ""
+"Common Options:\n"
+"  -H\t\t\tshow optional FUSE Mount Options\n"
+"  -s\t\t\tdisable multithreaded operation\n"
+"  -f\t\t\trun in foreground (don't spawn daemon).\n"
+"\t\t\tError messages will be sent to stderr\n"
+"\t\t\tinstead of syslog.\n"
+msgstr ""
+
+msgid ""
+"  -v, --verbose\t\tverbose: output encfs debug messages\n"
+"  -i, --idle=MINUTES\tAuto unmount after period of inactivity\n"
+"  --anykey\t\tDo not verify correct key is being used\n"
+"  --forcedecode\t\tdecode data even if an error is detected\n"
+"\t\t\t(for filesystems using MAC block headers)\n"
+msgstr ""
+
+msgid ""
+"  --public\t\tact as a typical multi-user filesystem\n"
+"\t\t\t(encfs must be run as root)\n"
+msgstr ""
+"  --public\t\tيتصرف كأنه نظام ملفات نموذجي متعدد المستخدمين\n"
+"\t\ttab](يجب تشغيل encfs كجذر)\n"
+
+msgid "  --reverse\t\treverse encryption\n"
+msgstr "  --reverse\t\tتشفير عكسي\n"
+
+msgid ""
+"  --extpass=program\tUse external program for password prompt\n"
+"\n"
+"Example, to mount at ~/crypt with raw storage in ~/.crypt :\n"
+"    encfs ~/.crypt ~/crypt\n"
+"\n"
+msgstr ""
+
+msgid "For more information, see the man page encfs(1)"
+msgstr "لمزيد من المعلومات. راجع صفحة دليل encfs(1)"
+
+msgid ""
+"encfs [options] rootDir mountPoint -- [FUSE Mount Options]\n"
+"valid FUSE Mount Options follow:\n"
+msgstr ""
+"encfs [خيارات]  مجلد الجذر  نفطة الضم  -- [خيارات ضم FUSE]\n"
+"يتبع ذلك خيارات ضم FUSE صالحة:\n"
+
+msgid "option '--public' ignored for non-root user"
+msgstr "تم تجاهل الخيار '--public' للمستخدم غير الجذر"
+
+#, c-format
+msgid "encfs version %s"
+msgstr "encfsالإصدارة %s"
+
+msgid "Missing one or more arguments, aborting."
+msgstr "ينقص معطى واحد أو أكثر، جارٍ الإجهاض."
+
+msgid ""
+"When specifying daemon mode, you must use absolute paths (beginning with '/')"
+msgstr ""
+
+msgid "The raw directory may not be a subdirectory of the mount point."
+msgstr ""
+
+msgid "You must use mount-on-demand with delay-mount"
+msgstr ""
+
+msgid "Must set password program when using mount-on-demand"
+msgstr "يحب ضبط برتامج كلمة السر عند استخدام الضم-عند-الطلب"
+
+msgid "Unable to locate root directory, aborting."
+msgstr "تعذر تحديد موقع مجلد الجذر، جارٍ الإجهاض."
+
+msgid "Unable to locate mount point, aborting."
+msgstr ""
+
+msgid ""
+"Note: requested single-threaded mode, but an idle\n"
+"timeout was specified.  The filesystem will operate\n"
+"single-threaded, but threads will still be used to\n"
+"implement idle checking."
+msgstr ""
+
+msgid ""
+"fuse failed.  Common problems:\n"
+" - fuse kernel module not installed (modprobe fuse)\n"
+" - invalid options -- see usage message\n"
+msgstr ""
+
+#, c-format
+msgid "Internal error: Caught exception from main loop: %s"
+msgstr ""
+
+msgid "Internal error: Caught unexpected exception"
+msgstr ""
+
+#, c-format
+msgid "Unmounting filesystem %s due to inactivity"
+msgstr ""
+
+#~ msgid "Block encoding, hides file name size somewhat"
+#~ msgstr "تعمية بالكتلة؛ تخفي اسم الملف و حجمه بعض الشيء"
+
+#~ msgid "--reverse specified, not using unique/chained IV"
+#~ msgstr "--reverse محدد، دون استخدام IV الفريد/المسلسل"
