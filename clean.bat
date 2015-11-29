@@ -24,6 +24,14 @@ del encfs\msvc\encfs.opensdf
 rmdir /S /Q encfs\msvc\Debug
 rmdir /S /Q encfs\msvc\Release
 
+del encfs\encfs\*.user
+del encfs\encfs\encfs.ncb
+del encfs\encfs\encfs.suo
+del encfs\encfs\encfs.sdf
+del encfs\encfs\encfs.opensdf
+rmdir /S /Q encfs\encfs\Debug
+rmdir /S /Q encfs\encfs\Release
+
 del dokany\*.user
 del dokany\dokan.ncb
 del dokany\dokan.suo
