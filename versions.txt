@@ -1,11 +1,10 @@
 This repository is based on the following source code/pre-build libraries:
 
-EncFS4win: Based on Erte fork #465d025
-  https://github.com/Erte/encfs4win/tree/465d025dbf960b57fec359dfbd0b6720b3053b54
-  See changelog for changes done since.
-  Pre-build: Compiled to encfs/msvc/Release. Binaries with DLL dependencies available in zip file in root /bin folder.
-  EncFS4win is based on encfs: v1.7.4
-    Original source in /orig folder
+EncFS: 1.9.0 (tracking jetwhiz/encfs4win upstream, itself tracking vgough/encfs upstream)
+
+EncFS4win port: encfs folder is a subtree of jetwhiz encfs fork, with MSVC files changes
+  https://github.com/jetwhiz/encfs4win/commit/de099c6f133a762d3db65753eb5820f8e71311fe
+  Pre-built: Binaries with DLL dependencies available in zip file in root /bin folder.
 
 Dokany: v0.7.4 (dokany-0.7.4.zip)
   https://github.com/dokan-dev/dokany/releases/tag/v0.7.4
