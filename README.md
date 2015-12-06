@@ -32,11 +32,13 @@ Instructions are for Visual Studio 2015. Library dependencies are already pre-bu
 
 1. (Optionnal for Release) Open `dokany\dokan.sln` and Build > Build Solution (or Build dokan-fuse only)
 2. (Optionnal for Release) Open `rlog\win32\rlog.sln` and Build > Build Solution
-3. **Open `encfs\encfs\encfs.sln` and Build > Build Solution**
+3. **Open `encfs\encfs\encfs.sln`, select `Release` `x86` and Build > Build Solution**
 
 Binaries and necessary DLL are copied to root `bin\Release` folder (or `bin\Debug` for Debug config).
 
-NOTE: Build instructions are not provided for Win32 OpenSSL and Boost C++. Pre-built libraries come from the official sites. If you want to build them yourself, see versions.txt for all source links and check the official websites for build instructions.
+NOTE1: Build instructions are not provided for Win32 OpenSSL and Boost C++. Pre-built libraries come from the official sites. If you want to build them yourself, see versions.txt for all source links and check the official websites for build instructions.
+
+NOTE2: x64 build is not supported/implemented.
 
 ## Credits
 
