@@ -24,7 +24,7 @@ encfs <crypted_dir> <plain_dir>
 
 NOTE: **Use a drive (like `X:`)** as `<plain_dir>` to avoid case sensitive problems which results in file/folder not found problems. To change the drive label, use `encfs <crypt_dir> <plain_dir> -- -o volname=<label>`
 
-NOTE: GUI (encfsw) is not compatible with EncFS4Win Reloaded v2. If you want a CLI, consider downloading v1 (see [Releases](https://github.com/kriswebdev/encfs4win-reloaded/releases)).
+NOTE: GUI (encfsw) is not compatible with EncFS4Win Reloaded v2. If you want it, consider downloading v1 (see [Releases](https://github.com/kriswebdev/encfs4win-reloaded/releases)).
 
 ## Build
 
@@ -32,15 +32,15 @@ Instructions are for Visual Studio 2015. Library dependencies are already pre-bu
 
 1. (Optionnal for Release) Open `dokany\dokan.sln` and Build > Build Solution (or Build dokan-fuse only)
 2. (Optionnal for Release) Open `rlog\win32\rlog.sln` and Build > Build Solution
-3. **Open `encfs\msvc\encfs.sln` and Build > Build Solution**
+3. **Open `encfs\encfs\encfs.sln` and Build > Build Solution**
 
 Binaries and necessary DLL are copied to root `bin\Release` folder (or `bin\Debug` for Debug config).
 
-NOTE: Build instructions are not provided for Win32 OpenSSL and Boost C++. See versions.txt for all source links and check the official websites for build instructions.
+NOTE: Build instructions are not provided for Win32 OpenSSL and Boost C++. Pre-built libraries come from the official sites. If you want to build them yourself, see versions.txt for all source links and check the official websites for build instructions.
 
 ## Credits
 
-[jetwhiz/encfs4win](https://github.com/jetwhiz/encfs4win), [freddy77/encfs4win](https://github.com/freddy77/encfs4win), [rustyx/encfs4win](https://github.com/rustyx/encfs4win), [dokan-dev/dokany](https://github.com/dokan-dev/dokany), [Win32 OpenSSL](https://slproweb.com/products/Win32OpenSSL.html), [Boost C++](http://www.boost.org/), [rlog](https://code.google.com/p/rlog/)...
+[jetwhiz/encfs4win](https://github.com/jetwhiz/encfs4win), [vgough/encfs](https://github.com/vgough/encfs), [freddy77/encfs4win](https://github.com/freddy77/encfs4win), [rustyx/encfs4win](https://github.com/rustyx/encfs4win), [dokan-dev/dokany](https://github.com/dokan-dev/dokany), [Win32 OpenSSL](https://slproweb.com/products/Win32OpenSSL.html), [Boost C++](http://www.boost.org/), [rlog](https://code.google.com/p/rlog/)...
 
 See source files for licences, and [Boost Software licence](http://www.boost.org/users/license.html) as it is minimized.
 
