@@ -23,7 +23,7 @@
 #endif
 #include <fcntl.h>
 #include <inttypes.h>
-#include "rlog/rlog.h"
+#include <rlog/rlog.h>
 #include <sys/stat.h>
 #include "unistd.h"
 #include <cerrno>

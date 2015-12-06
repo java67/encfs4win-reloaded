@@ -21,7 +21,7 @@
 #include "MACFileIO.h"
 
 #include <inttypes.h>
-#include "rlog/rlog.h"
+#include <rlog/rlog.h>
 #include <sys/stat.h>
 #include <cstring>
 
@@ -32,9 +32,15 @@
 #include "MemoryPool.h"
 #include "i18n.h"
 
+namespace rlog {
+	class RLogChannel;
+}  // namespace rlog
+
 using namespace rel;
 using namespace std;
+using namespace rlog;
 
+static RLogChannel *Info = DEF_CHANNEL("info/iface", Log_Info);
 //
 // Version 1.0 worked on blocks of size (blockSize + headerSize).
 //   That is, it took [blockSize] worth of user data and added headers.

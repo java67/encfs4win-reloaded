@@ -18,10 +18,12 @@
 
 #include "getopt.h"
 #include "pthread.h"
+#include <rlog/rlog.h>
+#include <rlog/Error.h>
 #include <rlog/RLogChannel.h>
 #include <rlog/StdioNode.h>
-#include <rlog/SyslogNode.h>
-#include <rlog/rlog.h>
+//#include <rlog/SyslogNode.h>
+#include <rlog/rloglocation.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 #include "sys/time.h"
@@ -60,6 +62,7 @@ class DirNode;
 #define LONG_OPT_REQUIRE_MAC 515
 
 using namespace std;
+using namespace rlog;
 using namespace rel;
 using gnu::autosprintf;
 
@@ -527,6 +530,8 @@ void encfs_destroy(void *_ctx) {
 void init_mpool_mutex();
 
 int main(int argc, char *argv[]) {
+	// initialize the logging library
+	RLogInit(argc, argv);
     SetConsoleCP(65001); // set utf-8
     init_mpool_mutex();
 
@@ -538,8 +543,8 @@ int main(int argc, char *argv[]) {
   
   // log to stderr by default..
   std::unique_ptr<StdioNode> slog(new StdioNode(STDERR_FILENO));
-  std::unique_ptr<SyslogNode> logNode;
-
+  std::unique_ptr<rlog::FileNode> logNode; // syslog not supported on Windows, use rlog::FileNode instead
+ 
   // show error and warning output
   slog->subscribeTo(GetGlobalChannel("error"));
   slog->subscribeTo(GetGlobalChannel("warning"));
@@ -650,9 +655,9 @@ int main(int argc, char *argv[]) {
 
     if (encfsArgs->isDaemon) {
       // switch to logging just warning and error messages via syslog
-      logNode.reset(new SyslogNode("encfs"));
-      logNode->subscribeTo(GetGlobalChannel("warning"));
-	  logNode->subscribeTo(GetGlobalChannel("error"));
+      logNode.reset(new rlog::FileNode("encfs", "c:\\encfs.txt"));
+	  // logNode->subscribeTo(GetGlobalChannel("warning"));
+	  // logNode->subscribeTo(GetGlobalChannel("error"));
 	  
 	  // disable stderr reporting..
 	  slog.reset();

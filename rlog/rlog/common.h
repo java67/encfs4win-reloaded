@@ -57,15 +57,16 @@
     @brief Macro used for declaring C++ clsas and functions to export from a
     shared library on Windows.
 */
-#ifdef _WIN32
-#  ifdef RLOG_EXPORTS
-#    define RLOG_DECL __declspec(dllexport)
-#  else
-#    define RLOG_DECL __declspec(dllimport)
-#  endif // building/using DLL
-#else // !_WIN32
+// Unquote for DLL instead of static lib
+//#ifdef _WIN32
+//#  ifdef RLOG_EXPORTS
+//#    define RLOG_DECL __declspec(dllexport)
+//#  else
+//#    define RLOG_DECL __declspec(dllimport)
+//#  endif // building/using DLL
+//#else // !_WIN32
 #  define RLOG_DECL
-#endif
+//#endif
 
 #ifdef _MSC_VER
 /* Visual Studio 2008 have it's own definition */

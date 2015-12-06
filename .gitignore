@@ -1,4 +1,5 @@
 [Dd]ebug*/
+/bin/Release
 *.*sdf
 *.suo
 UpgradeLog.htm

@@ -35,16 +35,22 @@
 #include <sys/fsuid.h>
 #endif
 
-#include "rlog/rlog.h"
+#include <rlog/rlog.h>
+#include <rlog/Error.h>
 #include <cstring>
 
 #include "Context.h"
 #include "Mutex.h"
 
+namespace rlog {
+class RLogChannel;
+}
 
 using namespace std;
 using namespace rel;
+using namespace rlog;
 
+static RLogChannel *Info = DEF_CHANNEL("info/DirNode", Log_Info);
 
 class DirDeleter {
  public:
@@ -205,8 +211,8 @@ bool RenameOp::apply() {
     }
 
     return true;
-  } catch (...) {
-    return false;
+  } catch (rlog::Error &err) {
+	  err.log(_RLWarningChannel);
   }
 }
 
@@ -232,8 +238,8 @@ void RenameOp::undo() {
     unix::rename(it->newCName.c_str(), it->oldCName.c_str());
     try {
       dn->renameNode(it->newPName.c_str(), it->oldPName.c_str(), false);
-    } catch (...) {
-      // continue on anyway...
+    } catch (rlog::Error &err) {
+	  err.log(_RLWarningChannel);
     }
     ++undoCount;
   };
@@ -330,8 +336,9 @@ string DirNode::plainPath(const char *cipherPath_) {
 
     // Default.
     return naming->decodePath(cipherPath_);
-  } catch (std::string err) {
-    rError("decode err: %s", err);
+  } catch (rlog::Error &err) {
+	  rError("decode err: %s", err.message());
+	  err.log(_RLWarningChannel);
 
     return string();
   }
@@ -347,8 +354,9 @@ string DirNode::relativeCipherPath(const char *plaintextPath) {
     }
 
     return naming->encodePath(plaintextPath);
-  } catch (std::string err) {
-    rError("encode err: %s", err);
+  } catch (rlog::Error &err) {
+	  rError("encode err: %s", err.message());
+	  err.log(_RLWarningChannel);
 
     return string();
   }
@@ -370,8 +378,9 @@ DirTraverse DirNode::openDir(const char *plaintextPath) {
     // directory level..
     try {
       if (naming->getChainedNameIV()) naming->encodePath(plaintextPath, &iv);
-    } catch (std::string err) {
-      rError("encode err: %s", err);
+	} catch (rlog::Error &err) {
+		rError("encode err: %s", err.message());
+		err.log(_RLWarningChannel);
     }
     return DirTraverse(dp, iv, naming);
   }
@@ -412,7 +421,7 @@ bool DirNode::genRenameList(list<RenameEl> &renameList, const char *fromP,
 
     try {
       plainName = naming->decodePath(de->d_name, &localIV);
-    } catch (...) {
+	} catch (rlog::Error &ex) {
       // if filename can't be decoded, then ignore it..
       continue;
     }
@@ -457,11 +466,12 @@ bool DirNode::genRenameList(list<RenameEl> &renameList, const char *fromP,
       rDebug("adding file %s to rename list", oldFull.c_str());
 
       renameList.push_back(ren);
-    } catch (...) {
+	} catch (rlog::Error &err) {
       // We can't convert this name, because we don't have a valid IV for
       // it (or perhaps a valid key).. It will be inaccessible..
       rWarning("Aborting rename: error on file: %s",
                fromCPart.append(1, '/').append(de->d_name).c_str());
+	  err.log(_RLDebugChannel);
 
       // abort.. Err on the side of safety and disallow rename, rather
       // then loosing files..
@@ -570,8 +580,9 @@ int DirNode::rename(const char *fromPlaintext, const char *toPlaintext) {
       ut.modtime = st.st_mtime;
       unix::utime(toCName.c_str(), &ut);
     }
-  } catch (...) {
+  } catch (rlog::Error &err) {
     // exception from renameNode, just show the error and continue..
+    err.log(_RLWarningChannel);
     res = -EIO;
   }
 

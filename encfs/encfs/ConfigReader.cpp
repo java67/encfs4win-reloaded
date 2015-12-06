@@ -21,7 +21,8 @@
 #include "ConfigReader.h"
 
 #include <fcntl.h>
-#include "rlog/rlog.h"
+#include <rlog/Error.h>
+#include <rlog/rlog.h>
 #include <sys/stat.h>
 #include "unistd.h"
 #include <cstring>
@@ -31,6 +32,7 @@
 #include "ConfigVar.h"
 
 using namespace std;
+using namespace rlog;
 
 ConfigReader::ConfigReader() {}
 

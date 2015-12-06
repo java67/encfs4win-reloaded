@@ -29,6 +29,7 @@
 
 using namespace std;
 using namespace rel;
+using namespace rlog;
 
 static Interface NullInterface("nullCipher", 1, 0, 0);
 static Range NullKeyRange(0);

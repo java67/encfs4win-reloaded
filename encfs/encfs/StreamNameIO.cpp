@@ -20,7 +20,8 @@
 
 #include "StreamNameIO.h"
 
-#include "rlog/rlog.h"
+#include <rlog/Error.h>
+#include <rlog/rlog.h>
 #include <cstring>
 
 #include "Cipher.h"

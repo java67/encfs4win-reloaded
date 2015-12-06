@@ -25,7 +25,8 @@
 #include <openssl/ossl_typ.h>
 #include <openssl/rand.h>
 #include "pthread.h"
-#include "rlog/rlog.h"
+#include <rlog/Error.h>
+#include <rlog/rlog.h>
 //#include <sys/mman.h>
 #include "sys/time.h"
 #include <cstring>
@@ -38,9 +39,14 @@
 #include "SSL_Cipher.h"
 #include "intl/gettext.h"
 
+namespace rlog {
+class RLogChannel;
+}
 
 using namespace std;
 using namespace rel;
+using namespace rlog;
+
 
 const int MAX_KEYLENGTH = 32;  // in bytes (256 bit)
 const int MAX_IVLENGTH = 16;   // 128 bit (AES block size, Blowfish has 64)
@@ -311,6 +317,7 @@ void initKey(const shared_ptr<SSLKey> &key, const EVP_CIPHER *_blockCipher,
   HMAC_Init_ex(&key->mac_ctx, KeyData(key), _keySize, EVP_sha1(), 0);
 }
 
+static RLogChannel *CipherInfo = DEF_CHANNEL("info/cipher", Log_Info);
 
 SSL_Cipher::SSL_Cipher(const rel::Interface &iface_, const rel::Interface &realIface_,
                        const EVP_CIPHER *blockCipher,
