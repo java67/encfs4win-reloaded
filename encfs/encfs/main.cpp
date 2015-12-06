@@ -18,7 +18,10 @@
 
 #include "getopt.h"
 #include "pthread.h"
-#include "rlog/rlog.h"
+#include <rlog/RLogChannel.h>
+#include <rlog/StdioNode.h>
+#include <rlog/SyslogNode.h>
+#include <rlog/rlog.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 #include "sys/time.h"
@@ -532,7 +535,14 @@ int main(int argc, char *argv[]) {
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
 #endif
+  
+  // log to stderr by default..
+  std::unique_ptr<StdioNode> slog(new StdioNode(STDERR_FILENO));
+  std::unique_ptr<SyslogNode> logNode;
 
+  // show error and warning output
+  slog->subscribeTo(GetGlobalChannel("error"));
+  slog->subscribeTo(GetGlobalChannel("warning"));
 
   // anything that comes from the user should be considered tainted until
   // we've processed it and only allowed through what we support.
@@ -547,6 +557,8 @@ int main(int argc, char *argv[]) {
 
   if (encfsArgs->isVerbose) {
     // subscribe to more logging channels..
+	  slog->subscribeTo(GetGlobalChannel("info"));
+	  slog->subscribeTo(GetGlobalChannel("debug"));
   }
 
   rDebug("Root directory: %s", encfsArgs->opts->rootDir.c_str());
@@ -637,6 +649,13 @@ int main(int argc, char *argv[]) {
     _umask(0);
 
     if (encfsArgs->isDaemon) {
+      // switch to logging just warning and error messages via syslog
+      logNode.reset(new SyslogNode("encfs"));
+      logNode->subscribeTo(GetGlobalChannel("warning"));
+	  logNode->subscribeTo(GetGlobalChannel("error"));
+	  
+	  // disable stderr reporting..
+	  slog.reset();
 
       // keep around a pointer just in case we end up needing it to
       // report a fatal condition later (fuse_main exits unexpectedly)...
