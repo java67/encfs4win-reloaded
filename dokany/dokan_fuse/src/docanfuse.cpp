@@ -4,6 +4,12 @@
 #include "ScopeGuard.h"
 #include "docanfuse.h"
 #include <stdio.h>
+#include <rlog/rlog.h>
+#include <rlog/Error.h>
+#include <rlog/RLogChannel.h>
+#include <rlog/StdioNode.h>
+//#include <rlog/SyslogNode.h>
+#include <rlog/rloglocation.h>
 
 #ifdef __CYGWIN__
 #define FWPRINTF dummy_fwprintf
@@ -14,7 +20,7 @@ int dummy_fwprintf(FILE*, const wchar_t*, ...)
 #elif defined(__GNUC__)
 #define FWPRINTF(f, args...) do { fwprintf(f, args); fflush(f); } while(0)
 #else
-#define FWPRINTF fwprintf
+#define FWPRINTF fwprintf // #define FWPRINTF(f, ...) rDebug( ##__VA_ARGS__ ) => Non Unicode issue: CStringA()
 #endif
 
 #define the_impl reinterpret_cast<impl_fuse_context*>(DokanFileInfo->DokanOptions->GlobalContext)
@@ -461,6 +467,7 @@ int do_fuse_loop(struct fuse *fs, bool mt)
 	//Parse Dokan options
 	PDOKAN_OPTIONS dokanOptions = (PDOKAN_OPTIONS)malloc(sizeof(DOKAN_OPTIONS));
 	if (dokanOptions == NULL) {
+		rDebug("dokanOptions == NULL");
 		return -1;
 	}
 	ZeroMemory(dokanOptions, sizeof(DOKAN_OPTIONS));
@@ -479,13 +486,16 @@ int do_fuse_loop(struct fuse *fs, bool mt)
 		dokanOptions->Options |= DOKAN_OPTION_DEBUG|DOKAN_OPTION_STDERR;
 
 	//Load Dokan DLL
-	if (!fs->ch->init())
+	if (!fs->ch->init()) {
+		rError("Couldn't load DLL.");
 		return -1; //Couldn't load DLL. TODO: UGLY!!
+	}
 
 	//The main loop!
 	fs->within_loop=true;
 	int res=fs->ch->ResolvedDokanMain(dokanOptions, &dokanOperations);
 	fs->within_loop=false;
+	rDebug("res=%i", res);
 	return res;
 }
 
@@ -671,6 +681,7 @@ struct fuse *fuse_setup(int argc, char *argv[],
 	int res;
 
 	res = fuse_parse_cmdline(&args, mountpoint, multithreaded, &foreground);
+	rDebug("res=%i", res);
 	if (res == -1)
 		return NULL;
 
@@ -682,12 +693,14 @@ struct fuse *fuse_setup(int argc, char *argv[],
 		goto err_unmount;
 
 	res = fuse_daemonize(foreground);
+	rDebug("res=%i", res);
 	if (res == -1)
 		goto err_unmount;
 
 	if (fuse->conf.setsignals)
 	{
 		res = fuse_set_signal_handlers(fuse_get_session(fuse));
+		rDebug("res=%i", res);
 		if (res == -1)
 			goto err_unmount;
 	}
@@ -733,16 +746,20 @@ int fuse_main_real(int argc, char *argv[], const struct fuse_operations *op,
 
 	fuse = fuse_setup(argc, argv, op, op_size, &mountpoint,
 		&multithreaded, user_data);
-	if (fuse == NULL)
+	if (fuse == NULL) {
+		rError("fuse is NULL");
 		return 1;
+	}
 
 	//MT loops are only supported on MSVC
 	if (multithreaded)
 		res = fuse_loop_mt(fuse);
 	else
 		res = fuse_loop(fuse);
+	rDebug("res=%i", res);
 
 	fuse_teardown(fuse, mountpoint);
+	rDebug("res=%i", res);
 	if (res < 0)
 		return 1;
 	

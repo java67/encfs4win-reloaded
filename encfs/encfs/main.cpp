@@ -687,6 +687,8 @@ int main(int argc, char *argv[]) {
       if (encfsArgs->opts->annotate) cerr << "$STATUS$ fuse_main_end" << endl;
 
       if (res == 0) returnCode = EXIT_SUCCESS;
+	  else
+		  rError("Fuse failed : fuse_main() returned code %i", res);
 
       if (res != 0 && encfsArgs->isDaemon && (oldStderr >= 0) &&
           (endTime - startTime <= 1)) {

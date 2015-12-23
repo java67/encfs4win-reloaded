@@ -5,7 +5,6 @@ if not exist bin\Debug mkdir bin\Debug
 if not exist bin\Release mkdir bin\Release
 
 rmdir /S /Q bin\Debug
-rmdir /S /Q bin\Release
 if not exist bin\Debug\ mkdir bin\Debug
 if not exist bin\Release\ mkdir bin\Release
 
@@ -69,4 +68,3 @@ move /Y "bin\Release\rlog.lib" "rlog\win32\Release\"
 move /Y "bin\Debug\rlog.dll" "rlog\win32\Debug\"
 move /Y "bin\Release\rlog.dll" "rlog\win32\Release\"
 rmdir /S /Q bin\Debug
-rmdir /S /Q bin\Release
