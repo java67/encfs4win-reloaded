@@ -191,7 +191,7 @@ int BlockNameIO::decodeName(const char *encodedName, int length, uint64_t *iv,
   // don't bother trying to decode files which are too small
   if (decodedStreamLen < _bs) {
     rDebug("Rejecting filename '%s'", encodedName);
-    throw ERROR("Filename too small to decode");
+    throw RLOG_ERROR("Filename too small to decode");
   }
 
   BUFFER_INIT(tmpBuf, 32, (unsigned int)length);
@@ -222,7 +222,7 @@ int BlockNameIO::decodeName(const char *encodedName, int length, uint64_t *iv,
   // might happen if there is an error decoding..
   if (padding > _bs || finalSize < 0) {
     rDebug("padding, _bx, finalSize = %i, %i, %i", padding, _bs, finalSize);
-    throw ERROR("invalid padding size");
+    throw RLOG_ERROR("invalid padding size");
   }
 
   // copy out the result..
@@ -238,7 +238,7 @@ int BlockNameIO::decodeName(const char *encodedName, int length, uint64_t *iv,
   if (mac2 != mac) {
     rDebug("checksum mismatch: expected %u, got %u", mac, mac2);
     rDebug("on decode of %i bytes", finalSize);
-    throw ERROR("checksum mismatch in filename decode");
+    throw RLOG_ERROR("checksum mismatch in filename decode");
   }
 
   return finalSize;

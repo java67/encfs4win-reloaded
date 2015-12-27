@@ -207,7 +207,7 @@ void CipherFileIO::initHeader() {
     unsigned char buf[8] = {0};
     do {
       if (!cipher->randomize(buf, 8, false))
-        throw ERROR("Unable to generate a random file IV");
+        throw RLOG_ERROR("Unable to generate a random file IV");
 
       fileIV = 0;
       for (int i = 0; i < 8; ++i) fileIV = (fileIV << 8) | (uint64_t)buf[i];
