@@ -22,7 +22,8 @@
           <h2 id="project_tagline">EncFS for Windows, Reloaded</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/kriswebdev/encfs4win-reloaded/raw/master/bin/encfs4win.zip">Download this project as a .zip file</a>
+              <a class="zip_download_link" href="https://github.com/kriswebdev/encfs4win-reloaded/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/kriswebdev/encfs4win-reloaded/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -47,31 +48,30 @@ It provides:</p>
 <p>Install:</p>
 
 <ol>
-<li>Install <strong><a href="https://github.com/dokan-dev/dokany/releases">Dokany</a></strong>. Tested with 0.8.0 RC3 but 0.7.4 should have better support.</li>
+<li>Install <strong><a href="https://www.microsoft.com/download/details.aspx?id=48145">Microsoft Redistribuable Visual C++ 2015</a> x86</strong>.</li>
+<li>Install <strong><a href="https://github.com/dokan-dev/dokany/releases/tag/v0.7.4">Dokany v0.7.4</a></strong> (no v8 support yet).</li>
 <li>Extract <strong><a href="https://github.com/kriswebdev/encfs4win-reloaded/raw/master/bin/encfs4win.zip">encfs4win.zip</a></strong>
 </li>
 </ol>
 
-<p>You may also need Microsoft <a href="https://www.microsoft.com/download/details.aspx?id=48145">Redistribuable Visual C++ 2015</a>.</p>
-
 <p>Run:</p>
 
-<p>You can use either the command-line interface or the graphical user interface:</p>
-
-<ul>
-<li>
-<strong>CLI</strong>: Open a command prompt and launch:</li>
-</ul>
+<p><strong>CLI</strong>: Open a command prompt and launch:</p>
 
 <pre><code>encfs &lt;crypted_dir&gt; &lt;plain_dir&gt;
 </code></pre>
 
+<p>NOTES:</p>
+
 <ul>
 <li>
-<strong>GUI</strong>: Launch <code>encfsw</code> and click on the system tray icon.</li>
+<strong>Use a drive (like <code>X:</code>)</strong> as <code>&lt;plain_dir&gt;</code> to avoid case sensitive problems which results in file/folder not found problems. To change the drive label, use <code>encfs &lt;crypt_dir&gt; &lt;plain_dir&gt; -- -o volname=&lt;label&gt;</code>
+</li>
+<li>GUI (encfsw) is not compatible with EncFS4Win Reloaded v2. If you want it, consider downloading v1 (see <a href="https://github.com/kriswebdev/encfs4win-reloaded/releases">Releases</a>).</li>
+<li>Facing an issue? Enable debugging output with <code>encfs -f -v -d &lt;crypted_dir&gt; &lt;plain_dir&gt;</code>
+</li>
+<li>EncFS4Win is currently not compatible with Paragon ExtFS due to Dokany dependency conflict. Properly unistall this software if you have it and then reinstall Dokany 0.7.4.</li>
 </ul>
-
-<p>NOTE: <strong>Use a drive (like <code>X:</code>)</strong> as <code>&lt;plain_dir&gt;</code> to avoid case sensitive problems which results in file/folder not found problems. To change the drive label, use <code>encfs &lt;crypt_dir&gt; &lt;plain_dir&gt; -- -o volname=&lt;label&gt;</code></p>
       </section>
     </div>
 
