@@ -11,9 +11,10 @@ It provides:
 
 Install:
 
-1. Install **[Microsoft Redistribuable Visual C++ 2015](https://www.microsoft.com/download/details.aspx?id=48145) x86**.
-2. Install **[Dokany v0.7.4](https://github.com/dokan-dev/dokany/releases/tag/v0.7.4)** (no v8 support yet).
-3. Extract **[encfs4win.zip](https://github.com/kriswebdev/encfs4win-reloaded/raw/master/bin/encfs4win.zip)**
+1. Install **[Microsoft Redistribuable Visual C++ 2013](https://www.microsoft.com/download/details.aspx?id=40784) x86 & x64** (required by Donaky 0.7.4).
+2. Install **[Microsoft Redistribuable Visual C++ 2015](https://www.microsoft.com/download/details.aspx?id=48145) x86** (required by EncFS4Win Reloaded).
+3. Install **[Dokany v0.7.4](https://github.com/dokan-dev/dokany/releases/tag/v0.7.4)** (no v0.8 support yet).
+4. Extract **[encfs4win.zip](https://github.com/kriswebdev/encfs4win-reloaded/raw/master/bin/encfs4win.zip)**
 
 Run:
 
