@@ -1,8 +1,6 @@
 # Development status
 Upstream projet [jetwhiz/encfs4win](https://github.com/jetwhiz/encfs4win) is under active development early 2016 and has made several improvements that are not integrated here and that have diverged from the original encfs project. Therefore, I recommend using **[jetwhiz/encfs4win releases](https://github.com/jetwhiz/encfs4win/releases)**.
 
-Still, this `encfs4win-reloaded` project is much more easy to build. So this project will now stop integrating the upstreams and the next version shall still provide a 1-step build system, but linked to the upstream repositories.
-
 
 # About
 EncFS4win Reloaded is a fork of EncFS4win, a Windows port of the encrypted filesystem [EncFS](https://en.wikipedia.org/wiki/EncFS), as the original port is not updated since 2013.
